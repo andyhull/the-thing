@@ -66,6 +66,7 @@ end
 
 group :test do
   gem "faker"
+  gem 'steak'
   gem "factory_girl_rails"
   gem "capybara"
   gem "launchy"
