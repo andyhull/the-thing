@@ -12,8 +12,25 @@
   </head>
 
   <body>
+    <%= render 'shared/mainnav' %>
 
-    <%= yield %>
+      <div class="row">
+        <div class="notice">
+          <div><%= notice %></div>
+          <div><%= alert %></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <% if content_for? :content %>
+          <%= yield :content %>
+        <% else %>
+          <div id="content" class="main-content">
+            <%= yield %>
+          </div>
+        <% end %>
+      </div>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

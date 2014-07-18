@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="pageHeader small-12 large-12 columns">
+    <span class="pageTitle small-3"><h1>All Things</h1></span>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 large-12">
+    <% @things.each do |thing| %>
+      <div><%= thing.name %></div>
+    <% end %>
+  </div>
+</div>
