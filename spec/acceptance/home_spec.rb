@@ -1,4 +1,4 @@
-require_relative "./acceptance_helper"
+require_relative "acceptance_helper"
 
 feature "Home" do
   scenario "show the home page" do
