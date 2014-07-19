@@ -23,13 +23,4 @@ feature "Thing" do
     expect(page).to have_content @thing.description
   end
 
-  scenario "edit existing thing" do
-    visit "/things/new"
-    # expect(page).to have_content "All"
-  end
-
-  scenario "edit your own things" do
-    visit "/things/#{@thing.id}/edit"
-    # expect(page).to have_content "All"
-  end
 end

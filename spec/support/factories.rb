@@ -14,9 +14,14 @@ FactoryGirl.define do
     email # pulls in from the defined sequence
     password "password"
     password_confirmation "password"
-    roles "admin"
+    roles "user"
     name "test"
   end 
 
+  factory :admin, parent: :user do
+    after :create do |user|
+      user.roles << "admin"
+    end
+  end
     
 end
