@@ -10,3 +10,11 @@
     <% end %>
   </div>
 </div>
+
+<div class="row">
+  <% if can? :create, Thing %>
+    <div class="pageHeader small-12 columns">
+      <%= link_to 'New thing', new_thing_path, :class => 'button' %>
+    </div>
+  <% end %>
+</div>

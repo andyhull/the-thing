@@ -1,2 +1,10 @@
-<h1>Things#show</h1>
-<p>Find me in app/views/things/show.html.erb</p>
+<div class="row">
+  <div class="small-12 columns">
+    <div><h2><%= @thing.name %></h2></div>
+    <div><p><%= @thing.description %></p></div>
+  </div>
+</div>
+
+<div class="row">
+    <%= link_to 'Back', things_path %>
+</div>

@@ -2,8 +2,8 @@
 FactoryGirl.define do
 
   factory :thing do
-    name "test thing"
-    desciption "test thing "
+    name { Faker::Lorem.words(rand(1..4)).join(" ") }
+    description { Faker::Lorem.words(rand(1..25)).join(" ") }
   end
 
   sequence :email do |n|

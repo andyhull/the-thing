@@ -1,0 +1,30 @@
+<%= simple_form_for [@thing]  do |f| %>
+  <% if @thing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@thing.errors.count, "error") %> prohibited this thing from being saved:</h2>
+
+      <ul>
+      <% @thing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-thing">
+    <div class="controls">
+      <%= f.input :name, required: true %>
+    </div>
+  </div>
+  
+  <div class="control-thing">
+    <%= f.label :description, "Description" %>
+    <div class="controls">
+      <%= f.text_area :description, rows: 3 %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: 'button' %>
+  </div>  
+<% end %>
