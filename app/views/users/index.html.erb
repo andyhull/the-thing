@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="span12">
+    <span class="pageTitle small-3">All Users</span>
+    <table class="table table-striped small-8 columns">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |u| %>
+        <tr>
+          <td><%= link_to_if(can?(:read, User), "#{u.name}", user_path(u.id)) {} %></td>
+          <td><%= "#{u.email}" %></td>
+          <td><%= link_to_if(can?(:edit, User), "Edit", edit_user_path(u.id), :class => 'button secondary tiny') %></td>
+          <td><%= link_to_if(can?(:delete, u), "Delete", user_path(u.id), method: :delete, :confirm => "Are you sure?", :class => 'button alert tiny') %></td>
+        </tr>    
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+  </div>
+<div class="row">
+  <%= link_to_if(can?(:create, User), "Create a new user", new_user_path, :class => 'button') %>
+</div>
