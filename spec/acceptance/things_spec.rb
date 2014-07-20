@@ -3,6 +3,8 @@ require_relative "acceptance_helper"
 feature "Thing" do
   before do
     @thing = FactoryGirl.create :thing
+    @user = FactoryGirl.create :user
+    @admin = FactoryGirl.create :admin
   end
 
   scenario "show all the things" do
@@ -21,6 +23,14 @@ feature "Thing" do
   scenario "show a thing" do
     visit "/things/#{@thing.id}"
     expect(page).to have_content @thing.description
+  end
+
+  scenario "delete a thing as admin" do
+    @count = Thing.all.count
+    sign_in @admin
+    visit "/things"
+    click_link 'Delete'
+    expect(Thing.all.count).to eq @count-1
   end
 
 end

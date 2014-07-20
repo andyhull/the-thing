@@ -1,2 +1,11 @@
-<h1>Things#edit</h1>
-<p>Find me in app/views/things/edit.html.erb</p>
+<div class="row">
+  <div class="small-12">
+    <div class="headerGray">
+      <span class="headerText">Editing thing</span>
+    </div>
+  </div>
+</div>
+  <%= render 'form' %>
+  <%= link_to 'Show', thing_path(@thing) %> |
+  <%= link_to 'Back', things_path %>
+</div>

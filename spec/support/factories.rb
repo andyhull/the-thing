@@ -18,10 +18,12 @@ FactoryGirl.define do
     name "test"
   end 
 
-  factory :admin, parent: :user do
-    after :create do |user|
-      user.roles << "admin"
-    end
+  factory :admin, :class => User do |u|
+    u.email
+    u.password "password"
+    u.password_confirmation "password"
+    u.roles "admin"
+    u.name 'Admin'
   end
     
 end

@@ -5,9 +5,27 @@
 </div>
 <div class="row">
   <div class="small-12 large-12">
-    <% @things.each do |thing| %>
-      <div><%= thing.name %></div>
-    <% end %>
+      <table class="table table-striped small-12">
+        <thead>
+          <th>Thing name</th>
+        </thead>
+        <tbody>
+        <% @things.each do |thing| %>
+          <tr>
+            <td><%= link_to thing.name, thing_path(thing.id) %></td>
+              <td>
+              <% if can? :edit, thing %>
+                <%= link_to "Edit", edit_thing_path(thing.id), :class => 'button tiny secondary' %>
+              <% end %>
+                &nbsp;
+              <% if can? :delete, thing %>
+                <%= link_to "Delete", thing, data: { confirm: "Are you sure?"}, :method => :delete, :class => 'button alert tiny' %>
+              <% end %>
+              </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
   </div>
 </div>
 
