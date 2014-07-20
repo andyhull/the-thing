@@ -33,4 +33,10 @@ feature "Thing" do
     expect(Thing.all.count).to eq @count-1
   end
 
+  scenario "prevent delete a thing as user" do
+    sign_in @user
+    visit "/things"
+    expect(page).to have_no_content 'Delete'
+  end
+
 end

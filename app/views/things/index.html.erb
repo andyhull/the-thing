@@ -13,15 +13,13 @@
         <% @things.each do |thing| %>
           <tr>
             <td><%= link_to thing.name, thing_path(thing.id) %></td>
-              <td>
               <% if can? :edit, thing %>
-                <%= link_to "Edit", edit_thing_path(thing.id), :class => 'button tiny secondary' %>
+              <td><%= link_to "Edit", edit_thing_path(thing.id), :class => 'button tiny secondary' %></td>
               <% end %>
                 &nbsp;
               <% if can? :delete, thing %>
-                <%= link_to "Delete", thing, data: { confirm: "Are you sure?"}, :method => :delete, :class => 'button alert tiny' %>
+                <td><%= link_to "Delete", thing, data: { confirm: "Are you sure?"}, :method => :delete, :class => 'button alert tiny' %></td>
               <% end %>
-              </td>
           </tr>
         <% end %>
         </tbody>
