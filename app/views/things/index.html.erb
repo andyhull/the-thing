@@ -5,23 +5,12 @@
 </div>
 <div class="row">
   <div class="small-12 large-12">
-      <table class="table table-striped small-12">
+      <table id="things-table" class="table table-striped small-12" data-source="<%= things_path(format: :json) %>">
         <thead>
           <th>Thing name</th>
+          <th>Thing description</th>
         </thead>
         <tbody>
-        <% @things.each do |thing| %>
-          <tr>
-            <td><%= link_to thing.name, thing_path(thing.id) %></td>
-              <% if can? :edit, thing %>
-              <td><%= link_to "Edit", edit_thing_path(thing.id), :class => 'button tiny secondary' %></td>
-              <% end %>
-                &nbsp;
-              <% if can? :delete, thing %>
-                <td><%= link_to "Delete", thing, data: { confirm: "Are you sure?"}, :method => :delete, :class => 'button alert tiny' %></td>
-              <% end %>
-          </tr>
-        <% end %>
         </tbody>
       </table>
   </div>
