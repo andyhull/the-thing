@@ -5,6 +5,14 @@
   </div>
 </div>
 
-<div class="row">
-    <%= link_to 'Back', things_path %>
+<div class="row">  
+  <ul class="button-group button-group-pad" >
+    <li><%= link_to 'Back', things_path, class: 'button tiny secondary' %></li>
+    <% if can? :edit, @thing %>
+    <li><%= link_to "Edit", edit_thing_path(@thing.id), :class => 'button tiny' %></li>
+    <% end %>
+    <% if can? :delete, @thing %>
+      <li><%= link_to "Delete", @thing, data: { confirm: "Are you sure?"}, :method => :delete, :class => 'button alert tiny' %></li>
+    <% end %>
+  </ul>
 </div>

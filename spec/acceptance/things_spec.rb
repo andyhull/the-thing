@@ -28,7 +28,7 @@ feature "Thing" do
   scenario "delete a thing as admin" do
     @count = Thing.all.count
     sign_in @admin
-    visit "/things"
+    visit "/things/#{@thing.id}"
     click_link 'Delete'
     expect(Thing.all.count).to eq @count-1
   end
